@@ -42,8 +42,34 @@ export default function Dialogs() {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-     Partners
+    Add Partners
       </Button>
+      <br></br>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+    Remove Partners
+      </Button>
+      <br></br>
+
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+    Deactivate Partners
+      </Button>
+      <br></br>
+
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+    List all Partners
+      </Button>
+      <br></br>
+
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+    Pending Partners
+      </Button>
+      <br></br>
+
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+    Edit Partners
+      </Button>
+      <br></br>
+
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className={classes.appBar}>
           <Toolbar>
