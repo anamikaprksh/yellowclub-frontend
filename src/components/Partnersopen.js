@@ -20,6 +20,9 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import PropTypes from "prop-types";
+import MaskedInput from "react-text-mask";
+import { Input } from "@material-ui/core";
 const gendr = [
   {
     value: "Male",
@@ -62,6 +65,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function TextMaskCustom(props) {
+  const { inputRef, ...other } = props;
+
+  return (
+    <MaskedInput
+      {...other}
+      ref={(ref) => {
+        inputRef(ref ? ref.inputElement : null);
+      }}
+      mask={[
+        "(",
+        "+",
+        9,
+        1,
+        ")",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        /\d/,
+      ]}
+      placeholderChar={"\u2000"}
+      showMask
+    />
+  );
+}
+TextMaskCustom.propTypes = {
+  inputRef: PropTypes.func.isRequired,
+};
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -72,9 +112,14 @@ export default function Dialogs() {
   const [correctpno, setCorrectpno] = useState(false);
   const [gender, setGender] = useState("");
   const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
+    checkedA: false,
+    checkedB: false,
   });
+  const [values, setValues] = React.useState({
+    textmask: "(+91)0000-000-000",
+    name: " ",
+  });
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -82,6 +127,14 @@ export default function Dialogs() {
   const handleClose = () => {
     setOpen(false);
   };
+  function handlePhoneNo(ev) {
+    setValues({
+      ...values,
+      [ev.target.name]: ev.target.value,
+    });
+    // console.log((ev.target.value.replace(/\s+/g, '')).replace(/-/g, "").length)
+    setCorrectpno(ev.target.value.replace(/\s+/g, "").length != 17);
+  }
 
   return (
     <div className={classes.root}>
@@ -146,9 +199,10 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="First Name"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
-                />
+                  autoFocus
+                ></TextField>
               </Grid>
               <Grid item xs={12} md={4} sm={6}>
                 {" "}
@@ -156,7 +210,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Middle Name"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                 />
               </Grid>
               <Grid item xs={12} md={4} sm={6}>
@@ -165,22 +219,31 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Last Name"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 />
               </Grid>
               <Grid item xs={12} md={4} sm={6}>
                 {" "}
-                <TextField
-                  id="standard-basic"
-                  label="Phone Number"
-                  variant="standard"
-                  fullWidth="true"
-                  type="number"
-                  onChange={(e) => setCorrectpno(e.target.value.length != 10)}
+                <InputLabel align="left" htmlFor="formatted-text-mask-input">
+                  Phone Number
+                </InputLabel>
+                <Input
+                  // id="standard-basic"
+                  // label="Phone Number"
+                  // variant="standard"
+                  // fullWidth
+                  // type="number"
+                  // onChange={(e) => setCorrectpno(e.target.value.length != 10)}
                   error={correctpno}
-                  required
-                />
+                  // required
+                  value={values.textmask}
+                  onChange={(ev) => handlePhoneNo(ev)}
+                  name="textmask"
+                  id="formatted-text-mask-input"
+                  inputComponent={TextMaskCustom}
+                  fullWidth
+                ></Input>
               </Grid>
               <Grid item xs={12} md={4} sm={6}>
                 {" "}
@@ -188,7 +251,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Email"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   type="email"
                   required
                 />
@@ -199,9 +262,10 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Gender"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   onChange={(e) => setGender(e.target.value)}
                   value={gender}
+                  align="left"
                   select
                   required
                 >
@@ -218,18 +282,20 @@ export default function Dialogs() {
                   id="outlined-basic"
                   label="About"
                   variant="outlined"
-                  fullWidth="true"
-                  size="large"
+                  fullWidth
+                  multiline={true}
+                  rows={4}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12}>
                 {" "}
                 <TextField
-                  id="standard-basic"
+                  id="outlined-basic"
                   label="Languages"
-                  variant="standard"
-                  fullWidth="true"
-                  size="large"
+                  variant="outlined"
+                  fullWidth
+                  multiline={true}
+                  rows={4}
                 />
               </Grid>
               <Grid item xs={12} md={4} sm={6}>
@@ -238,7 +304,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="City"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 />
               </Grid>
@@ -248,7 +314,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Age"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 />
               </Grid>
@@ -258,7 +324,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Designation"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 />
               </Grid>
@@ -268,7 +334,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Experience"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 />
               </Grid>
@@ -278,7 +344,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Education"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 />
               </Grid>
@@ -288,8 +354,9 @@ export default function Dialogs() {
                   id="outlined-basic"
                   label="expertise"
                   variant="outlined"
-                  fullWidth="true"
-                  size="large"
+                  fullWidth
+                  multiline={true}
+                  rows={4}
                 />
               </Grid>
               <Grid item xs={12} md={4} sm={6}>
@@ -298,7 +365,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Fee per Session"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 ></TextField>
               </Grid>
@@ -350,7 +417,7 @@ export default function Dialogs() {
                   id="standard-basic"
                   label="Profile image URL"
                   variant="standard"
-                  fullWidth="true"
+                  fullWidth
                   required
                 ></TextField>
               </Grid>
