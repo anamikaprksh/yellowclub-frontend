@@ -498,7 +498,7 @@ export default function Dialogs() {
                   </Paper>
                 </Grid>
                 <Grid item xs={12} md={4} sm={6}>
-                  <Paper className={classes.paper}>
+                  <Paper className={classes.paper} variant="outlined">
                     <div className={classes.flexing}>
                       <div>
                         {/* <Paper className={classes.paper} onFocus={(e)=>setFocused({...focused,[e.target.ID]:1,[e.target.foc]:1})} onBlur={(e)=>setFocused(1,0)} elevation={focused.ID==1 && focused.foc}> */}
@@ -527,7 +527,7 @@ export default function Dialogs() {
                           </div>
                         </Paper>
                       </div>
-                     
+                     <div style={{width:"1%"}}></div>
                       <div>
                         <Paper
                           className={classes.paper}
