@@ -2,11 +2,13 @@
 import './App.css';
 import { Router } from "@reach/router";
 import Partners from './components/Partners'
-
+import MiniDrawer from "./components/Appbar/Appbar"
 function App() {
   return (
     <div className="App">
+       <Header path="/header"></Header>
      <Router>
+     <Header path="/header"></Header>
       <Part path="/"></Part>
      </Router>
 
@@ -15,5 +17,8 @@ function App() {
 }
 function Part() {
  return <Partners></Partners>
+}
+function Header(){
+  return <MiniDrawer></MiniDrawer>
 }
 export default App;
