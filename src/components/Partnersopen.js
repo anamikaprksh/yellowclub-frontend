@@ -19,7 +19,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import PropTypes from "prop-types";
 import MaskedInput from "react-text-mask";
 import { Input } from "@material-ui/core";
@@ -43,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: "center",
     padding: "1% 15%",
+    // backgroundColor:"grey",
   },
   paper: {
     padding: theme.spacing(2),
@@ -50,7 +50,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   appBar: {
-    position: "relative",
+    // position: "relative",
+    backgroundColor:"#606364",
+    // color:"black",
+    position:"sticky",
+    // opacity:"95%"
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -62,6 +66,9 @@ const useStyles = makeStyles((theme) => ({
   },
   boxed: {
     border: "solid black 1px",
+  },
+  page:{
+    backgroundColor:"#3A3B41"
   },
 }));
 
@@ -202,14 +209,14 @@ export default function Dialogs() {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Sound
+              ADD PARTNERS
             </Typography>
             <Button autoFocus color="inherit" onClick={handleClose}>
               save
             </Button>
           </Toolbar>
         </AppBar>
-        <List>
+        <List className={classes.page}>
           <form className={classes.root} noValidate autoComplete="off">
             <Paper className={classes.paper}  elevation={24}>
               <Grid container spacing={3}>
