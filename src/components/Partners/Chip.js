@@ -87,7 +87,8 @@ export default function MultipleSelect() {
         >
           {names.map((name) => (
             <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-              {name}
+              <Checkbox checked={personName.indexOf(name) > -1} />
+              <ListItemText primary={name} />
             </MenuItem>
           ))}
         </Select>
