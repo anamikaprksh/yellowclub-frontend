@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import { Router } from "@reach/router";
-import Partners from './components/Partners'
+import Partners from './components/Partners/Partners'
 import MiniDrawer from "./components/Appbar/Appbar"
 function App() {
   return (

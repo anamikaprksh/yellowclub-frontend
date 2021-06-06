@@ -22,6 +22,7 @@ import Switch from "@material-ui/core/Switch";
 import PropTypes from "prop-types";
 import MaskedInput from "react-text-mask";
 import { Input } from "@material-ui/core";
+import ChipsArray from "./Chip"
 const gendr = [
   {
     value: "Male",
@@ -36,6 +37,24 @@ const gendr = [
     label: "Others",
   },
 ];
+// const languages = [
+//   {
+//     value: "English",
+//     label: "English",
+//   },
+//   {
+//     value: "Malayalam",
+//     label: "Malayalam",
+//   },
+//   {
+//     value: "Tamil",
+//     label: "Tamil",
+//   },
+//   {
+//     value: "Hindi",
+//     label: "Hindi",
+//   },
+// ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -162,6 +181,7 @@ export default function Dialogs() {
     // console.log((ev.target.value.replace(/\s+/g, '')).replace(/-/g, "").length)
     setCorrectpno(ev.target.value.replace(/\s+/g, "").length != 17);
   }
+  console.log(ChipsArray)
   return (
     <div className={classes.root}>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -374,14 +394,26 @@ export default function Dialogs() {
                     onBlur={(e) => setlanguagesFocused(0)}
                     elevation={languagesfocused}
                   >
-                    <TextField
+                    <ChipsArray></ChipsArray>
+                    {/* <TextField
                       id="outlined-basic"
                       label="Languages"
                       variant="outlined"
+                      // onChange={(e) => setLang(e.target.value)}
+                      // value={lang}
+                      select
                       fullWidth
-                      multiline={true}
-                      rows={3}
-                    />
+                      align="left"
+                      // multiline={true}
+                      // rows={3}
+                    >
+                     
+                      {languages.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField> */}
                   </Paper>
                 </Grid>
                 <Grid item xs={12} md={4} sm={6}>
