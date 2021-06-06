@@ -17,7 +17,18 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import EventIcon from '@material-ui/icons/Event';
+import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
+import EventSeatIcon from '@material-ui/icons/EventSeat';
+import PersonIcon from '@material-ui/icons/Person';
+import PeopleIcon from '@material-ui/icons/People';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import ReportIcon from '@material-ui/icons/Report';
+import SettingsIcon from '@material-ui/icons/Settings';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -150,10 +161,10 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {["Dashboard", "Bookings", "Events", "Sessions"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 4 === 0 ? <DashboardIcon/> : index % 4 === 1 ?<CollectionsBookmarkIcon/>:index % 4 === 2 ?<EventIcon />:<EventSeatIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -161,10 +172,21 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
+          {["Partners", "Therapists", "Users"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index % 3 === 0 ? <PeopleIcon/> : index % 3 === 1 ?<SupervisorAccountIcon/>:<PersonIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {["Marketing", "Announce", "Issues","Settings","Logout"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+              {index % 5 === 0 ? <EqualizerIcon/> : index % 5 === 1 ?<VolumeUpIcon />:index % 5 === 2 ?<ReportIcon />:index%5 ===3?<SettingsIcon /> :<ExitToAppIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
