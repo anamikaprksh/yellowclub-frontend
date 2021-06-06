@@ -9,10 +9,21 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
+import { withStyles } from "@material-ui/core/styles";
+
+// const CustomColorCheckbox = withStyles({
+//     root: {
+//       color: "grey",
+//       "&$checked": {
+//         color: "#cce800"
+//       }
+//     },
+//     checked: {}
+//   })((props) => <Checkbox color="default" {...props} />);
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(0),
     // minWidth: 120,
     // maxWidth: 500,
   },
@@ -26,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   noLabel: {
     marginTop: theme.spacing(3),
   },
+  coloryellow:{
+    color:"yellow",
+  },
 }));
 
 const ITEM_HEIGHT = 48;
@@ -34,16 +48,17 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 550,
+      width: 250,
     },
   },
 };
 
 const names = [
-  'English',
-  'Malayalam',
-  'Tamil',
-  'Hindi',
+  'Ex1',
+  'Ex2',
+  'Ex3',
+  'Ex4',
+  'Ex5',
 ];
 
 function getStyles(name, personName, theme) {
@@ -67,7 +82,7 @@ export default function MultipleSelect() {
   return (
     <div>
       <FormControl className={classes.formControl} fullWidth>
-        <InputLabel id="demo-mutiple-chip-label">Languages</InputLabel>
+        <InputLabel id="demo-mutiple-chip-label">Expertise</InputLabel>
         <Select
           labelId="demo-mutiple-chip-label"
           id="demo-mutiple-chip"
@@ -87,7 +102,7 @@ export default function MultipleSelect() {
         >
           {names.map((name) => (
             <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-              <Checkbox checked={personName.indexOf(name) > -1} />
+              <Checkbox checked={personName.indexOf(name) > -1} color="primary" />
               <ListItemText primary={name} />
             </MenuItem>
           ))}

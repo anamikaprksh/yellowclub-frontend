@@ -22,7 +22,8 @@ import Switch from "@material-ui/core/Switch";
 import PropTypes from "prop-types";
 import MaskedInput from "react-text-mask";
 import { Input } from "@material-ui/core";
-import ChipsArray from "./Chip"
+import LangChip from "./LanguageChip";
+import ExperChip from "./ExpertiseChip";
 const gendr = [
   {
     value: "Male",
@@ -181,7 +182,6 @@ export default function Dialogs() {
     // console.log((ev.target.value.replace(/\s+/g, '')).replace(/-/g, "").length)
     setCorrectpno(ev.target.value.replace(/\s+/g, "").length != 17);
   }
-  console.log(ChipsArray)
   return (
     <div className={classes.root}>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -394,7 +394,7 @@ export default function Dialogs() {
                     onBlur={(e) => setlanguagesFocused(0)}
                     elevation={languagesfocused}
                   >
-                    <ChipsArray></ChipsArray>
+                    <LangChip></LangChip>
                     {/* <TextField
                       id="outlined-basic"
                       label="Languages"
@@ -509,14 +509,15 @@ export default function Dialogs() {
                     onBlur={(e) => setexpertiseFocused(0)}
                     elevation={expertisefocused}
                   >
-                    <TextField
+                    {/* <TextField
                       id="outlined-basic"
                       label="expertise"
                       variant="outlined"
                       fullWidth
                       multiline={true}
                       rows={3}
-                    />
+                    /> */}
+                    <ExperChip></ExperChip>
                   </Paper>
                 </Grid>
                 <Grid item xs={12} md={4} sm={6}>
