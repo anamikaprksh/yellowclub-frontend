@@ -71,9 +71,9 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     // position: "relative",
-    backgroundColor:"#606364",
+    backgroundColor: "#606364",
     // color:"black",
-    position:"sticky",
+    position: "sticky",
     // opacity:"95%"
   },
   title: {
@@ -87,8 +87,23 @@ const useStyles = makeStyles((theme) => ({
   boxed: {
     border: "solid black 1px",
   },
-  page:{
-    backgroundColor:"#3A3B41"
+  page: {
+    backgroundColor: "#3A3B41",
+  },
+  mainpaper: {
+    padding: theme.spacing(6),
+    textAlign: "center",
+    marginTop: 5,
+    // width:"70%",
+    // margin: "1% 10%",
+    color: theme.palette.text.secondary,
+    fontSize:"140%",
+    "&:hover": {
+      boxShadow:
+        " 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)",
+    color:"black",
+  },
+    cursor:"pointer",
   },
 }));
 
@@ -133,7 +148,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Dialogs() {
+export default function Dialogs(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [correctpno, setCorrectpno] = useState(false);
@@ -166,7 +181,8 @@ export default function Dialogs() {
     textmask: "(+91)0000-000-000",
     name: " ",
   });
-
+  // if(props.open==false){
+  //   setOpen(true)}
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -182,35 +198,15 @@ export default function Dialogs() {
     // console.log((ev.target.value.replace(/\s+/g, '')).replace(/-/g, "").length)
     setCorrectpno(ev.target.value.replace(/\s+/g, "").length != 17);
   }
+
   return (
     <div className={classes.root}>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Paper className={classes.mainpaper} onClick={handleClickOpen}>
+        ADD PARTNERS
+      </Paper>
+      {/* <Button color="primary" onClick={handleClickOpen} className={classes.largebutton}>
         Add Partners
-      </Button>
-      <br></br>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Remove Partners
-      </Button>
-      <br></br>
-
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Deactivate Partners
-      </Button>
-      <br></br>
-
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        List all Partners
-      </Button>
-      <br></br>
-
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Pending Partners
-      </Button>
-      <br></br>
-
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Edit Partners
-      </Button>
+      </Button> */}
       <br></br>
       <Dialog
         fullScreen
@@ -238,7 +234,7 @@ export default function Dialogs() {
         </AppBar>
         <List className={classes.page}>
           <form className={classes.root} noValidate autoComplete="off">
-            <Paper className={classes.paper}  elevation={24}>
+            <Paper className={classes.paper} elevation={24}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={4} sm={6}>
                   <Paper
@@ -567,7 +563,7 @@ export default function Dialogs() {
                           </div>
                         </Paper>
                       </div>
-                     <div style={{width:"1%"}}></div>
+                      <div style={{ width: "1%" }}></div>
                       <div>
                         <Paper
                           className={classes.paper}

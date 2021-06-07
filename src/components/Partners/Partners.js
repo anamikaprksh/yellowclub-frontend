@@ -1,21 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import handleOpen from "./Partnersopen"
+import handleOpen from "./Partnersopen";
 import Dialogs from "./Partnersopen";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { FlareSharp } from "@material-ui/icons";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
+      paddingTop: 70,
+      paddingRight: 30,
+      paddingLeft: 100,
+      width: "98%",
+      textAlign:"center",
     },
   },
-}));
-export default function Partners() {
-  const classes = useStyles();
+  // mainpaper: {
+  //   padding: theme.spacing(5),
+  //   textAlign: "center",
+  //   marginTop:20,
+  //   // width:"70%",
+  //   margin:"1% 10%",
+  //   color: theme.palette.text.secondary,
+  //   '&:hover': {
+  //     boxShadow: " 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)"
+  // },
+// },
 
+
+  // ShiftLeft: {
+  //   transition: theme.transitions.create(["width", "margin"], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  //   marginLeft: "5%",
+  // },
+  // ShiftRight: {
+  //   marginLeft: 240,
+  //   transition: theme.transitions.create(["width", "margin"], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  // },
+}));
+export default function Partners(props) {
+  const classes = useStyles();
+  const [openadd,setOpenadd]=useState(false)
+  console.log(openadd)
   return (
-    <div>
-      <Dialogs></Dialogs>
+    <div className={classes.root}>
+      {/* <div  className={clsx( {
+          // eslint-disable-next-line no-restricted-globals
+          // [classes.ShiftLeft]:!open,
+          [classes.ShiftRight]: true,
+        })}> */}
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6} md={6}>    
+            {" "}
+            <Dialogs></Dialogs>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>    
+            {" "}
+            <Dialogs></Dialogs>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>    
+            {" "}
+            <Dialogs></Dialogs>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>    
+            {" "}
+            <Dialogs></Dialogs>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>    
+            {" "}
+            <Dialogs></Dialogs>
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>    
+            {" "}
+            <Dialogs></Dialogs>
+        </Grid>
+        
+      </Grid>
     </div>
   );
 }

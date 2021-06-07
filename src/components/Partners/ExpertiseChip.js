@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   chip: {
-    margin: 2,
+    margin: 1,
   },
   noLabel: {
     marginTop: theme.spacing(3),
