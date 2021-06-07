@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor:"#0071B8",
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -44,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarShift: {
     marginLeft: drawerWidth,
+    // backgroundColor:"#0071B8",
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -57,12 +59,14 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
   },
   drawer: {
+    // backgroundColor:"#0071B8",
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: "nowrap",
   },
   drawerOpen: {
     width: drawerWidth,
+    // backgroundColor:"#0071B8",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -84,7 +88,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
-    backgroundColor:"#3F51B5",
+    backgroundColor:"#0071B8",
+    // border:"none",
     // color:"white",
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,

@@ -62,9 +62,9 @@ export default function Partners(props) {
         })}> */}
         <div className="bgpic">
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={6}>    
+        <Grid item xs={12} sm={6} md={6} >    
             {" "}
-            <Dialogs></Dialogs>
+            <Dialogs ></Dialogs>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>    
             {" "}

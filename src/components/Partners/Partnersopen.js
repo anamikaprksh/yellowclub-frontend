@@ -24,6 +24,7 @@ import MaskedInput from "react-text-mask";
 import { Input } from "@material-ui/core";
 import LangChip from "./LanguageChip";
 import ExperChip from "./ExpertiseChip";
+// import "./Partners.css";
 const gendr = [
   {
     value: "Male",
@@ -101,7 +102,8 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       boxShadow:
         " 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)",
-    color:"black",
+    color:"white",
+    backgroundColor:"#0071B8",
   },
     cursor:"pointer",
   },
@@ -201,8 +203,10 @@ export default function Dialogs(props) {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.mainpaper} onClick={handleClickOpen}>
+      <Paper className={classes.mainpaper} onClick={handleClickOpen} >
+        <div className="partnerbutton">
         ADD PARTNERS
+        </div>
       </Paper>
       {/* <Button color="primary" onClick={handleClickOpen} className={classes.largebutton}>
         Add Partners
@@ -221,6 +225,7 @@ export default function Dialogs(props) {
               color="inherit"
               onClick={handleClose}
               aria-label="close"
+              
             >
               <CloseIcon />
             </IconButton>
