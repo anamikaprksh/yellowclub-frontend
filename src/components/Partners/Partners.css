@@ -1,10 +1,10 @@
 .bgpic {
-  /* background-image: url("../../undraw_collab_8oes.svg");
+  background-image: url("../../undraw_collab_8oes.svg");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
   width: 100%;
-  height: 92%; */
-  /* background-color: #0071B8; */
+  height: 100%; 
+  background-color: #eaeaea;
 
 }

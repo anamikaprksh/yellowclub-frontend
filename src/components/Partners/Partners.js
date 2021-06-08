@@ -13,17 +13,19 @@ import "./Partners.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(0),
       paddingTop: 120,
       paddingRight: 30,
       paddingLeft: 100,
-      width: "99%",
+      // width: "100%",
       textAlign: "center",
       // backgroundColor: "grey",
-      // height:"100%",
+      // height:"100vh",
       position:"absolute",
       top: 0,
       bottom: 0,
+      right:0,
+      // minHeight:"99%",
     },
   },
   // mainpaper: {
@@ -62,7 +64,7 @@ export default function Partners(props) {
           // [classes.ShiftLeft]:!open,
           [classes.ShiftRight]: true,
         })}> */}
-        {/* <div className="bgpic"> */}
+        <div className="bgpic">
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} md={6}>
               {" "}
@@ -90,6 +92,6 @@ export default function Partners(props) {
             </Grid>
           </Grid>
         </div>
-      // </div>
+       </div>
   );
 }
