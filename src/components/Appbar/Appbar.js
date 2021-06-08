@@ -115,7 +115,7 @@ export default function MiniDrawer() {
     setOpen(false);
   };
   function handleClicked(e){
-    console.log(e.target)
+    window.location.href="/"+e
   }
 
   return (
@@ -169,7 +169,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {["Dashboard", "Bookings", "Events", "Sessions"].map((text, index) => (
-            <ListItem button key={text} onClick={(e)=>handleClicked(e)}>
+            <ListItem button key={text} onClick={(e)=>handleClicked(text)}>
               <ListItemIcon>
                 {index % 4 === 0 ? <DashboardIcon/> : index % 4 === 1 ?<CollectionsBookmarkIcon/>:index % 4 === 2 ?<EventIcon />:<EventSeatIcon />}
               </ListItemIcon>
@@ -180,7 +180,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {["Partners", "Therapists", "Users"].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={text}  onClick={(e)=>handleClicked(text)}>
               <ListItemIcon>
               {index % 3 === 0 ? <PeopleIcon/> : index % 3 === 1 ?<SupervisorAccountIcon/>:<PersonIcon />}
               </ListItemIcon>
@@ -191,7 +191,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {["Marketing", "Announce", "Issues","Settings","Logout"].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={text}  onClick={(e)=>handleClicked(text)}>
               <ListItemIcon>
               {index % 5 === 0 ? <EqualizerIcon/> : index % 5 === 1 ?<VolumeUpIcon />:index % 5 === 2 ?<ReportIcon />:index%5 ===3?<SettingsIcon /> :<ExitToAppIcon />}
               </ListItemIcon>

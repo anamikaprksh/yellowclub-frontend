@@ -8,18 +8,22 @@ import Dialogs from "./Partnersopen";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { FlareSharp } from "@material-ui/icons";
+import { FlareSharp, Height } from "@material-ui/icons";
 import "./Partners.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      paddingTop: 70,
+      paddingTop: 120,
       paddingRight: 30,
       paddingLeft: 100,
       width: "99%",
       textAlign: "center",
-      backgroundColor:"#eaeaea",
+      // backgroundColor: "grey",
+      // height:"100%",
+      position:"absolute",
+      top: 0,
+      bottom: 0,
     },
   },
   // mainpaper: {
@@ -58,7 +62,7 @@ export default function Partners(props) {
           // [classes.ShiftLeft]:!open,
           [classes.ShiftRight]: true,
         })}> */}
-        <div className="bgpic">
+        {/* <div className="bgpic"> */}
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} md={6}>
               {" "}
@@ -86,6 +90,6 @@ export default function Partners(props) {
             </Grid>
           </Grid>
         </div>
-      </div>
+      // </div>
   );
 }

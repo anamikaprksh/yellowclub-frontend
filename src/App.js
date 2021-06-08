@@ -9,7 +9,7 @@ function App() {
        <Header path="/header"></Header>
      <Router>
      <Header path="/header"></Header>
-      <Part path="/"></Part>
+      <Part path="/Partners"></Part>
      </Router>
 
     </div>
