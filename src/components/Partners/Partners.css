@@ -1,12 +1,10 @@
-.bgpic{
+.bgpic {
+  /* background-image: url("../../undraw_collab_8oes.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 92%; */
+  /* background-color: #ffe785; */
 
-background-image:url("../../undraw_collab_8oes.svg");
-background-size: cover;
-background-repeat: no-repeat;
-position: absolute;
-    width: 100%;
-    height: 90%;
 }
-/* .partnerbutton:hover{
-background-color: blue;
-} */

@@ -114,6 +114,9 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  function handleClicked(e){
+    console.log(e.target)
+  }
 
   return (
     <div className={classes.root}>
@@ -166,7 +169,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {["Dashboard", "Bookings", "Events", "Sessions"].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={(e)=>handleClicked(e)}>
               <ListItemIcon>
                 {index % 4 === 0 ? <DashboardIcon/> : index % 4 === 1 ?<CollectionsBookmarkIcon/>:index % 4 === 2 ?<EventIcon />:<EventSeatIcon />}
               </ListItemIcon>

@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 70,
       paddingRight: 30,
       paddingLeft: 100,
-      width: "98%",
-      textAlign:"center",
+      width: "99%",
+      textAlign: "center",
+      backgroundColor:"#eaeaea",
     },
   },
   // mainpaper: {
@@ -31,8 +32,7 @@ const useStyles = makeStyles((theme) => ({
   //   '&:hover': {
   //     boxShadow: " 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)"
   // },
-// },
-
+  // },
 
   // ShiftLeft: {
   //   transition: theme.transitions.create(["width", "margin"], {
@@ -51,44 +51,41 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Partners(props) {
   const classes = useStyles();
-  const [openadd,setOpenadd]=useState(false)
-  console.log(openadd)
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       {/* <div  className={clsx( {
           // eslint-disable-next-line no-restricted-globals
           // [classes.ShiftLeft]:!open,
           [classes.ShiftRight]: true,
         })}> */}
         <div className="bgpic">
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={6} >    
-            {" "}
-            <Dialogs ></Dialogs>
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>    
-            {" "}
-            <Dialogs></Dialogs>
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>    
-            {" "}
-            <Dialogs></Dialogs>
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>    
-            {" "}
-            <Dialogs></Dialogs>
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>    
-            {" "}
-            <Dialogs></Dialogs>
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>    
-            {" "}
-            <Dialogs></Dialogs>
-        </Grid>
-        
-      </Grid>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6} md={6}>
+              {" "}
+              <Dialogs></Dialogs>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              {" "}
+              <Dialogs></Dialogs>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              {" "}
+              <Dialogs></Dialogs>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              {" "}
+              <Dialogs></Dialogs>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              {" "}
+              <Dialogs></Dialogs>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              {" "}
+              <Dialogs></Dialogs>
+            </Grid>
+          </Grid>
+        </div>
       </div>
-    </div>
   );
 }

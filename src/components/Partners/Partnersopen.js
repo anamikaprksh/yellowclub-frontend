@@ -92,17 +92,19 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#3A3B41",
   },
   mainpaper: {
-    padding: theme.spacing(6),
+    padding: theme.spacing(3.5),
     textAlign: "center",
-    marginTop: 5,
+    marginTop: 15,
+    marginLeft:"5%",
+    marginRight:"5%",
     // width:"70%",
     // margin: "1% 10%",
     color: theme.palette.text.secondary,
-    fontSize:"140%",
+    // fontSize:"140%",
     "&:hover": {
       boxShadow:
         " 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)",
-    color:"white",
+    color:"yellow",
     backgroundColor:"#0071B8",
   },
     cursor:"pointer",
@@ -205,7 +207,7 @@ export default function Dialogs(props) {
     <div className={classes.root}>
       <Paper className={classes.mainpaper} onClick={handleClickOpen} >
         <div className="partnerbutton">
-        ADD PARTNERS
+        <h3>ADD PARTNERS</h3>
         </div>
       </Paper>
       {/* <Button color="primary" onClick={handleClickOpen} className={classes.largebutton}>
